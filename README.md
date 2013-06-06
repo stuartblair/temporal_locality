@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TemporalLocality
 
 TODO: Write a gem description
@@ -27,3 +28,9 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+=======
+temporal_locality
+=================
+
+Tools for producing insights on temporal locality in an evolving codebase
+>>>>>>> 06b9034e707c104c54b99c76be6eb5d36989eb76

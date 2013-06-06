@@ -2,7 +2,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'aruba'
 require 'temporal_locality'
 require_relative 'stub_binary'
-
+require 'ascii_matrix'
 World(TemporalLocality)
 
 def gem_bin_path

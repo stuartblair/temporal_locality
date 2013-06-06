@@ -33,5 +33,9 @@ describe AsciiMatrix do
 		it 'only parses lines that start and end with |' do
 			ascii_matrix.to_matrix("\n|a|").should eql [["a"]]
 		end
+
+		it 'strips leading and trailing whitespace from cell contents' do
+			ascii_matrix.to_matrix("| a|   b  |").should eql [["a","b"]]
+		end
 	end
 end

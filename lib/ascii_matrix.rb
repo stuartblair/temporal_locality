@@ -8,10 +8,14 @@ class AsciiMatrix
 
 		ascii_source = ascii_source.strip
 		ascii_source.each_line do |row|
-			result << row.split('|').reject do |element| 
+			cells = row.split('|').reject do |element| 
 				element == "|" || element == "\n" || element == ""
 			end 
+			result << cells.map do |cell|
+				cell.strip
+			end
 		end
+
 		return result
 	end
 
