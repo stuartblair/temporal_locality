@@ -1,7 +1,7 @@
 class AsciiTable
-	def to_matrix(ascii_source)
+	def to_array(ascii_source)
 		if empty_table?(ascii_source) then 
-			return empty_matrix
+			return empty_2d_array
 		end
 
 		result = []
@@ -21,7 +21,7 @@ class AsciiTable
 		return ascii_source == "" || ascii_source == "||"  
 	end
 
-	def empty_matrix
+	def empty_2d_array
 		[[]]
 	end
 
