@@ -1,4 +1,4 @@
-class AsciiMatrix
+class AsciiTable
 	def to_matrix(ascii_source)
 		if empty_table?(ascii_source) then 
 			return empty_matrix

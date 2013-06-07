@@ -12,7 +12,6 @@ Then /^the coupling report looks like:$/ do |expected_table|
 	ascii_matrix = AsciiMatrix.new
 	matrix_output = ascii_matrix.to_matrix(all_output) 
 	actual_table = Cucumber::Ast::Table.new(matrix_output)
-	#actual_table = Cucumber::Ast::Table.new([["resource", "", "1", "2"], ["file_a", "1", "x", "100"], ["file_b", "2", "100", "x"]])
 	actual_table.diff!(expected_table)
 end
 
