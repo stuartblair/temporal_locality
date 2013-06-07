@@ -6,16 +6,12 @@ class AsciiMatrix
 
 		result = []
 
-		ascii_source = ascii_source.strip
-		ascii_source.each_line do |row|
-			cells = row.split('|').reject do |element| 
-				element == "|" || element == "\n" || element == ""
-			end 
-			result << cells.map do |cell|
-				cell.strip
+		with_each_row_in(ascii_source) do |row|
+			result << with_each_cell_in(row) do |cell|
+				cell.strip 
 			end
 		end
-
+	
 		return result
 	end
 
@@ -27,5 +23,20 @@ class AsciiMatrix
 
 	def empty_matrix
 		[[]]
+	end
+
+	def with_each_row_in(table_source, &block)
+		table_source.strip.each_line do |row|
+			parsed_cells =  row.split('|').reject do |element| 
+				element == "|" || element == "\n" || element == ""
+			end 
+			yield parsed_cells
+		end
+	end
+
+	def with_each_cell_in(row, &block)
+		row.map do |cell|
+			yield cell
+		end
 	end
 end
