@@ -27,8 +27,9 @@ class AsciiTable
 
 	def with_each_row_in(table_source)
 		table_source.strip.each_line do |row|
+			row.chomp!
 			parsed_cells = row.split('|').reject do |element| 
-				element == "|" || element == "\n" || element == ""
+				element == "|" || element == ""
 			end 
 			yield parsed_cells
 		end
