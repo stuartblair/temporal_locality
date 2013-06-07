@@ -25,16 +25,16 @@ class AsciiTable
 		[[]]
 	end
 
-	def with_each_row_in(table_source, &block)
+	def with_each_row_in(table_source)
 		table_source.strip.each_line do |row|
-			parsed_cells =  row.split('|').reject do |element| 
+			parsed_cells = row.split('|').reject do |element| 
 				element == "|" || element == "\n" || element == ""
 			end 
 			yield parsed_cells
 		end
 	end
 
-	def with_each_cell_in(row, &block)
+	def with_each_cell_in(row)
 		row.map do |cell|
 			yield cell
 		end
