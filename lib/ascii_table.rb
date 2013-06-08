@@ -1,8 +1,8 @@
 class AsciiTable
-	def to_array(ascii_source)
+	def to_array(table_source)
 		result = []
 
-		with_each_row_in(ascii_source) do |row|
+		with_each_line_in(table_source) do |row|
 			result << with_each_cell_in(row) do |cell|
 				cell.strip 
 			end
@@ -17,7 +17,7 @@ class AsciiTable
 		[[]]
 	end
 
-	def with_each_row_in(table_source)
+	def with_each_line_in(table_source)
 		with_each_table_row_in(table_source) do |row|
 			yield row.split(/\s*\|\s*/)		
 		end
