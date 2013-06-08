@@ -8,14 +8,15 @@ class AsciiTable
 			end
 		end
 	
-		return result == [] ? empty_2d_array : result
+		return at_least_an_empty_2d_array(result)
 	end
 
 	private
 
-	def empty_2d_array
-		[[]]
+	def at_least_an_empty_2d_array(result)
+		result == [] ? [[]] : result
 	end
+
 
 	def with_each_line_in(table_source)
 		with_each_table_row_in(table_source) do |row|
