@@ -10,8 +10,7 @@ end
 
 Then /^the coupling report looks like:$/ do |expected_table|
 	ascii_table = AsciiTable.new
-	matrix_output = ascii_table.to_array(all_output) 
-	actual_table = Cucumber::Ast::Table.new(matrix_output)
+	actual_table = Cucumber::Ast::Table.new(ascii_table.to_array(all_output))
 	actual_table.diff!(expected_table)
 end
 
