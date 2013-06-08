@@ -27,8 +27,7 @@ class AsciiTable
 
 	def with_each_row_in(table_source)
 		with_each_table_row_in(table_source) do |row|
-			parsed_cells = row.split(/\s*\|\s*/)			
-			yield parsed_cells
+			yield row.split(/\s*\|\s*/)		
 		end
 	end
 
@@ -40,8 +39,7 @@ class AsciiTable
 
 	def with_each_table_row_in(table_source)
 		table_source.strip.each_line do |row|
-			row = row.chomp.sub(/^\|(.*)\|/, '\1')
-			yield row
+			yield row.chomp.sub(/^\|(.*)\|/, '\1')
 		end
 	end
 end
