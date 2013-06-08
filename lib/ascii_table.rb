@@ -27,10 +27,8 @@ class AsciiTable
 
 	def with_each_row_in(table_source)
 		table_source.strip.each_line do |row|
-			row.chomp!
-			parsed_cells = row.split('|').reject do |element| 
-				element == "|" || element == ""
-			end 
+			row = row.chomp.sub(/^\|(.*)\|/, '\1')
+			parsed_cells = row.split(/\s*\|\s*/)			
 			yield parsed_cells
 		end
 	end
