@@ -1,9 +1,5 @@
 class AsciiTable
 	def to_array(ascii_source)
-		if empty_table?(ascii_source) then 
-			return empty_2d_array
-		end
-
 		result = []
 
 		with_each_row_in(ascii_source) do |row|
@@ -12,14 +8,10 @@ class AsciiTable
 			end
 		end
 	
-		return result
+		return result == [] ? empty_2d_array : result
 	end
 
 	private
-
-	def empty_table?(ascii_source)
-		return ascii_source == "" || ascii_source == "||"  
-	end
 
 	def empty_2d_array
 		[[]]
