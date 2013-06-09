@@ -3,9 +3,7 @@ class AsciiTable
 		result = []
 
 		with_each_line_in(table_source) do |row|
-			result << with_each_cell_in(row) do |cell|
-				cell.strip 
-			end
+			result << cells_from(row)
 		end
 	
 		return at_least_an_empty_2d_array(result)
@@ -24,9 +22,9 @@ class AsciiTable
 		end
 	end
 
-	def with_each_cell_in(row)
+	def cells_from(row)
 		row.map do |cell|
-			yield cell
+			cell.strip
 		end
 	end
 
