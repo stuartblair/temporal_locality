@@ -1,4 +1,5 @@
 require "temporal_locality/version"
+require 'temporal_locality/reporter'
 
 module TemporalLocality
 	class TemporalLocality

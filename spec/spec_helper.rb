@@ -1,1 +1,1 @@
-$LOAD_PATH << File.expand_path(File.join(__FILE__, '..', 'lib'))
+$LOAD_PATH << File.expand_path(File.join(__FILE__, '..', '..', 'lib', 'temporal_locality'))
