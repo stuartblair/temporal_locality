@@ -4,11 +4,7 @@ def revision_history_with
 	end
 end
 
-def single_change_set_with
-	yield
-end
-	
-def two_files
+def single_change_set_with_two_files
 <<-EOS
 Index: ordercomplete/ReturnOrderCompleteService/src/tst/oms/v1/ro/complete/RefundInvoiceResponseProcess.java
 ===================================================================
