@@ -12,3 +12,6 @@ end
 def empty_changeset
 	TemporalLocality::EmptyChangeset
 end
+
+def multiple_changesets_containing_only(file)
+end
