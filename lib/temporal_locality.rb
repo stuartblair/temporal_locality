@@ -1,22 +1,12 @@
 require "temporal_locality/version"
+require "temporal_locality/configuration"
 
 module TemporalLocality
 	class TemporalLocality
 		def initialize
 			@occurrences = {}
-			@options = {}
-			parse_options(ARGV)
+			@configuration = Configuration.new(ARGV)
 		end
-
-		def parse_options(args)
-			optparse = OptionParser.new do |opts|
-				opts.on("--svn_repository SVN_REPOSITORY", "Gather history from this repository") do |svn_repository|
-					@options[:svn_repository] = svn_repository
-				end
-			end
-			optparse.parse!(args)
-		end
-
 
 		def report
 			change_sets.each do |change_set|
@@ -31,7 +21,7 @@ module TemporalLocality
 		end
 
 		def change_sets
-			`svn log #{@options[:svn_repository]}`.split(/^-+$/)
+			`svn log #{@configuration.change_history_source}`.split(/^-+$/)
 		end
 
 		def with_each_resource_from(change_set)
