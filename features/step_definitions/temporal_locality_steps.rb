@@ -8,7 +8,7 @@ end
 
 When /^the temporal coupling analysis is performed$/ do
 	steps %{
-		When I run `temporal_locality http://svnurl`
+		When I run `temporal_locality --svn_repository http://svnurl`
 	}
 end
 

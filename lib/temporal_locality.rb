@@ -3,8 +3,20 @@ require "temporal_locality/version"
 module TemporalLocality
 	class TemporalLocality
 		def initialize
-			@occurrences = {} 
+			@occurrences = {}
+			@options = {}
+			parse_options(ARGV)
 		end
+
+		def parse_options(args)
+			optparse = OptionParser.new do |opts|
+				opts.on("--svn_repository SVN_REPOSITORY", "Gather history from this repository") do |svn_repository|
+					@options[:svn_repository] = svn_repository
+				end
+			end
+			optparse.parse!(args)
+		end
+
 
 		def report
 			change_sets.each do |change_set|
@@ -19,7 +31,7 @@ module TemporalLocality
 		end
 
 		def change_sets
-			`/home/stuart/code/temporal_locality/stubbed_binaries/svn log http://svn/repo/trunk`.split(/^-+$/)
+			`svn log #{@options[:svn_repository]}`.split(/^-+$/)
 		end
 
 		def with_each_resource_from(change_set)
@@ -33,7 +45,7 @@ module TemporalLocality
 			if (!@occurrences[resource_a]) 
 				@occurrences[resource_a] = {}
 			end
-		
+
 			if (!@occurrences[resource_a][resource_b])
 				@occurrences[resource_a][resource_b] = 0
 			end
