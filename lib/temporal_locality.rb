@@ -65,5 +65,4 @@ module TemporalLocality
 	end
 end
 
-TemporalLocality::TemporalLocality.new.report
 

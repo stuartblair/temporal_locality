@@ -1,13 +1,10 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'aruba'
-require 'temporal_locality'
 require_relative 'stub_binary'
 require 'ascii_table'
-World(TemporalLocality)
 
-def gem_bin_path
-	File.dirname(__FILE__) + '../../bin'
+Before do
+	  @dirs = ["./stubbed_binaries"]
 end
 
-@dirs = [stub_binary_path]
-ENV['PATH'] = "#{gem_bin_path}/#{stub_binary_path}/#{ENV['PATH']}"
+ENV['PATH'] = "./bin#{File::PATH_SEPARATOR}./stubbed_binaries#{File::PATH_SEPARATOR}#{ENV['PATH']}"
