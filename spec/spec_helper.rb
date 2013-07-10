@@ -15,3 +15,19 @@ end
 
 def multiple_changesets_containing_only(file)
 end
+
+def single_change_history
+<<-EOS
+------------------------------------------------------------------------
+r8 | sally | 2002-07-14 08:15:29 -0500 | 1 line
+Changed paths:
+M file_a
+M file_b
+
+Frozzled the sub-space winch.
+
+------------------------------------------------------------------------
+EOS
+end
+
+
